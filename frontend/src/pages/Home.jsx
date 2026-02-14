@@ -2,16 +2,19 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Mic, Shield, BookOpen, Briefcase, ArrowRight, Heart } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import PersonaSelector from '../components/PersonaSelector';
+import LanguageSwitcher from '../components/LanguageSwitcher';
 
 const Home = () => {
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     const features = [
-        { icon: Mic, title: "Voice Assistant", desc: "Speak in your language and get instant answers about government services.", color: "primary" },
-        { icon: Shield, title: "Smart Eligibility", desc: "Quickly check if you qualify for government schemes and benefits.", color: "accent" },
-        { icon: BookOpen, title: "Doc Explainer", desc: "Complex government documents simplified into easy language.", color: "primary" },
-        { icon: Briefcase, title: "Skill & Jobs", desc: "Get personalized training and job recommendations.", color: "accent" },
+        { icon: Mic, title: t('home.features.assistant.title'), desc: t('home.features.assistant.description'), color: "primary" },
+        { icon: Shield, title: t('home.features.eligibility.title'), desc: t('home.features.eligibility.description'), color: "accent" },
+        { icon: BookOpen, title: t('home.features.documents.title'), desc: t('home.features.documents.description'), color: "primary" },
+        { icon: Briefcase, title: t('home.features.skills.title'), desc: t('home.features.skills.description'), color: "accent" },
     ];
 
     const containerVariants = {
@@ -44,12 +47,15 @@ const Home = () => {
                         </div>
                         <h1 className="text-xl font-extrabold gradient-text">JanAccess AI</h1>
                     </div>
-                    <button
-                        onClick={() => navigate('/dashboard')}
-                        className="btn-primary text-sm px-5 py-2.5"
-                    >
-                        Open Dashboard
-                    </button>
+                    <div className="flex items-center gap-4">
+                        <LanguageSwitcher />
+                        <button
+                            onClick={() => navigate('/dashboard')}
+                            className="btn-primary text-sm px-5 py-2.5"
+                        >
+                            Open Dashboard
+                        </button>
+                    </div>
                 </div>
             </nav>
 
@@ -66,7 +72,7 @@ const Home = () => {
                         transition={{ duration: 0.5 }}
                     >
                         <span className="inline-block px-5 py-2 mb-6 text-sm font-bold tracking-widest text-primary-600 uppercase bg-primary-50 rounded-full border border-primary-100">
-                            Voice-First Civic Intelligence
+                            {t('home.tagline')}
                         </span>
                     </motion.div>
 
@@ -76,9 +82,9 @@ const Home = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-gray-900 mb-8 leading-tight"
                     >
-                        Access Public Services <br />
+                        {t('home.title')} <br />
                         <span className="gradient-text">
-                            Using Your Voice.
+                            {t('home.subtitle')}
                         </span>
                     </motion.h1>
 
@@ -88,8 +94,7 @@ const Home = () => {
                         transition={{ duration: 0.6, delay: 0.4 }}
                         className="max-w-2xl mx-auto text-lg md:text-xl text-gray-500 mb-10 leading-relaxed"
                     >
-                        JanAccess AI helps underserved communities understand government schemes,
-                        check eligibility, and simplify complex documents — all with a simple voice command.
+                        {t('home.description')}
                     </motion.p>
 
                     <motion.div
@@ -102,14 +107,14 @@ const Home = () => {
                             onClick={() => navigate('/dashboard')}
                             className="btn-primary text-lg px-10 py-5 flex items-center justify-center gap-2 group"
                         >
-                            Get Started Now
+                            {t('home.getStarted')}
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </button>
                         <a
                             href="#features"
                             className="btn-outline text-lg px-10 py-5"
                         >
-                            Learn More
+                            {t('home.learnMore')}
                         </a>
                     </motion.div>
                 </div>
@@ -125,10 +130,10 @@ const Home = () => {
                     className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
                 >
                     {[
-                        { value: "6+", label: "Schemes Covered" },
-                        { value: "5", label: "Core Features" },
-                        { value: "100%", label: "Free to Use" },
-                        { value: "24/7", label: "Available" },
+                        { value: "30+", label: t('home.stats.schemes') },
+                        { value: "5", label: t('home.stats.features') },
+                        { value: "100%", label: t('home.stats.free') },
+                        { value: "24/7", label: t('home.stats.access') },
                     ].map((stat, i) => (
                         <motion.div key={i} variants={itemVariants}>
                             <p className="text-3xl md:text-4xl font-extrabold gradient-text">{stat.value}</p>
@@ -155,7 +160,7 @@ const Home = () => {
                             Everything You Need, <span className="gradient-text">Simplified</span>
                         </h2>
                         <p className="text-gray-500 max-w-xl mx-auto">
-                            Designed for accessibility, built for impact. Every feature works with voice, text, or both.
+                            Built for accessibility. Works with voice, text, or both.
                         </p>
                     </motion.div>
 
@@ -192,10 +197,10 @@ const Home = () => {
             <section className="py-20 bg-gradient-to-br from-primary-600 to-primary-800">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
-                        Ready to Access Your Benefits?
+                        Ready to Get Started?
                     </h2>
                     <p className="text-primary-100 text-lg mb-8 max-w-xl mx-auto">
-                        No login required. Just speak or type your question and get instant help.
+                        No login required. Just speak or type your question.
                     </p>
                     <button
                         onClick={() => navigate('/dashboard')}
@@ -216,9 +221,9 @@ const Home = () => {
                         <span className="text-white font-bold text-lg">JanAccess AI</span>
                     </div>
                     <p className="text-gray-400 text-sm flex items-center justify-center gap-1">
-                        Built with <Heart className="w-4 h-4 text-red-400 fill-red-400" /> for underserved communities
+                        Built with <Heart className="w-4 h-4 text-red-400 fill-red-400" /> for communities
                     </p>
-                    <p className="text-gray-500 text-xs mt-2">© 2026 JanAccess AI. Empowering communities through intelligence.</p>
+                    <p className="text-gray-500 text-xs mt-2">{t('home.footer.copyright')}</p>
                 </div>
             </footer>
         </div>

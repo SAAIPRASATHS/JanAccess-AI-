@@ -43,10 +43,22 @@ AI_MODEL = os.getenv("AI_MODEL", "llama-3.3-70b-versatile")
 
 SYSTEM_CIVIC = (
     "You are JanAccess AI, a helpful civic intelligence assistant for India. "
-    "Always simplify to Grade 5 reading level. Avoid technical jargon. "
-    "Provide actionable next steps. Be empathetic and respectful. "
-    "Keep answers concise — under 200 words. "
-    "When suggesting schemes, mention that official portal links are available in the suggestions."
+    "CRITICAL: Only provide factual information based on the scheme data provided to you. "
+    "DO NOT make up information, suggest services not in the database, or hallucinate next steps. "
+    "If you don't have exact information, say 'I don't have complete details about this. Please visit the official website or contact the helpline.'"
+    "\n\n"
+    "IMPORTANT CLARIFICATIONS:\n"
+    "- Government schemes like MUDRA, Stand-Up India provide BUSINESS LOANS, not personal loans\n"
+    "- For personal loans, users should visit banks (SBI, HDFC) - these are NOT government schemes\n"
+    "- Only suggest schemes that are actually in the provided database\n"
+    "- Provide accurate eligibility criteria based on scheme data\n"
+    "\n\n"
+    "Communication style:\n"
+    "- Simplify to Grade 5 reading level\n"
+    "- Avoid technical jargon\n"
+    "- Keep answers concise — under 200 words\n"
+    "- Be empathetic and respectful\n"
+    "- When suggesting schemes, mention that official portal links are available in the suggestions"
 )
 
 SYSTEM_SIMPLIFY = (
@@ -54,6 +66,21 @@ SYSTEM_SIMPLIFY = (
     "easy to understand (Grade 5 level), and actionable. Remove jargon. "
     "Add bullet points for key steps. Keep it under 250 words."
 )
+
+# Language support configuration
+LANGUAGE_INSTRUCTIONS = {
+    "en": "Respond in English.",
+    "hi": "Respond in Hindi (हिन्दी). Use Devanagari script. Keep responses simple and accessible.",
+    "ta": "Respond in Tamil (தமிழ்). Use Tamil script. Keep responses simple and accessible.",
+    "bn": "Respond in Bengali (বাংলা). Use Bengali script. Keep responses simple and accessible."
+}
+
+LANGUAGE_NAMES = {
+    "en": "English",
+    "hi": "Hindi",
+    "ta": "Tamil",
+    "bn": "Bengali"
+}
 
 
 # ─── Core AI Functions ──────────────────────────────────────────
@@ -84,9 +111,15 @@ async def analyze_query(query: str) -> Dict[str, Any]:
         return {"intent": "general_query", "entities": {}}
 
 
-def _build_system_prompt(persona: str | None = None) -> str:
-    """Build the system prompt, optionally enriched with persona instructions."""
+def _build_system_prompt(persona: str | None = None, language: str = "en") -> str:
+    """Build the system prompt, optionally enriched with persona and language instructions."""
     prompt = SYSTEM_CIVIC
+    
+    # Add language instruction
+    if language and language in LANGUAGE_INSTRUCTIONS:
+        prompt += f" {LANGUAGE_INSTRUCTIONS[language]}"
+    
+    # Add persona instruction
     if persona:
         from backend.persona_config import PERSONA_SYSTEM_PROMPTS
         extra = PERSONA_SYSTEM_PROMPTS.get(persona, "")
@@ -100,14 +133,14 @@ def _build_system_prompt(persona: str | None = None) -> str:
 
 
 async def generate_conversational_response(
-    user_query: str, context: str, persona: str | None = None
+    user_query: str, context: str, persona: str | None = None, language: str = "en"
 ) -> str:
-    """Generate an empathetic, simple response — persona-aware."""
+    """Generate an empathetic, simple response — persona-aware and multilingual."""
     client = _get_client()
     if not client:
         return _fallback_response(user_query, context)
 
-    system_prompt = _build_system_prompt(persona)
+    system_prompt = _build_system_prompt(persona, language)
 
     try:
         response = await client.chat.completions.create(

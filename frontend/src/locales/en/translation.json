@@ -1,0 +1,110 @@
+{
+    "nav": {
+        "home": "Home",
+        "dashboard": "Dashboard"
+    },
+    "home": {
+        "tagline": "Voice-First Intelligence",
+        "title": "Access Government Services",
+        "subtitle": "With Your Voice",
+        "description": "JanAccess AI simplifies access to schemes, eligibility checks, and documents.",
+        "getStarted": "Get Started",
+        "learnMore": "Learn More",
+        "stats": {
+            "schemes": "Schemes",
+            "features": "Features",
+            "free": "Free",
+            "access": "Access"
+        },
+        "selectPersona": "Select Your Profile",
+        "personaDescription": "Choose the profile that best matches you for personalized assistance",
+        "features": {
+            "title": "Complete Civic Assistance",
+            "description": "Designed for accessibility, built for impact. Every feature works with voice, text, or both.",
+            "assistant": {
+                "title": "Voice-First Assistant",
+                "description": "Speak in your language for instant answers"
+            },
+            "eligibility": {
+                "title": "Eligibility Checker",
+                "description": "Check if you qualify for schemes instantly"
+            },
+            "documents": {
+                "title": "Document Explainer",
+                "description": "Complex documents made simple"
+            },
+            "skills": {
+                "title": "Skills & Jobs",
+                "description": "Personalized training and job recommendations"
+            }
+        },
+        "cta": {
+            "title": "Ready to Access Your Benefits?",
+            "description": "No login required. Use voice or text.",
+            "button": "Try Assistant"
+        },
+        "footer": {
+            "tagline": "Built with love for underserved communities",
+            "copyright": "© 2026 JanAccess AI. Empowering communities through intelligence."
+        }
+    },
+    "dashboard": {
+        "title": "AI Assistant",
+        "description": "Search for schemes or ask questions",
+        "personaDescription": "Personalized for {{persona}}",
+        "tabs": {
+            "chat": "Chat",
+            "eligibility": "Eligibility",
+            "documents": "Documents",
+            "skills": "Skills",
+            "about": "About"
+        },
+        "chat": {
+            "placeholder": "Type your question...",
+            "voiceButton": "Tap to speak",
+            "send": "Send",
+            "quickActions": "Quick Questions",
+            "personaQuickActions": "{{persona}} Quick Actions"
+        },
+        "eligibility": {
+            "title": "Check Eligibility",
+            "description": "Fill in your details to check which schemes you qualify for"
+        },
+        "documents": {
+            "title": "Document Explainer",
+            "description": "Upload a document to get a simplified explanation"
+        },
+        "skills": {
+            "title": "Skills & Jobs",
+            "description": "Get personalized skill development and employment recommendations"
+        },
+        "about": {
+            "title": "About JanAccess AI",
+            "description": "Voice-first civic intelligence for underserved communities"
+        },
+        "lowBandwidth": {
+            "label": "Low Bandwidth Mode",
+            "active": "Text-only mode",
+            "inactive": "Enable for slow connections"
+        }
+    },
+    "persona": {
+        "student": "Student",
+        "farmer": "Farmer",
+        "entrepreneur": "Entrepreneur",
+        "senior": "Senior Citizen",
+        "woman": "Women",
+        "general": "General"
+    },
+    "common": {
+        "loading": "Loading...",
+        "error": "An error occurred",
+        "tryAgain": "Try Again",
+        "cancel": "Cancel",
+        "submit": "Submit",
+        "close": "Close",
+        "select": "Select",
+        "search": "Search",
+        "clear": "Clear"
+    }
+}

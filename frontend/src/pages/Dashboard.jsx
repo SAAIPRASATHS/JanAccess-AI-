@@ -223,7 +223,7 @@ const Dashboard = () => {
                             </span>
                         </div>
                         <p className="text-[10px] text-gray-500">
-                            {isLowBandwidth ? 'Text-only mode active. No audio.' : 'Enable for slow connections.'}
+                            {isLowBandwidth ? 'Text-only mode' : 'Enable for slow networks'}
                         </p>
                     </motion.button>
 
@@ -290,11 +290,11 @@ const Dashboard = () => {
                                 className="h-full flex flex-col"
                             >
                                 <div className="mb-6 text-center md:text-left">
-                                    <h2 className="section-title">Assistance at your voice</h2>
+                                    <h2 className="section-title">AI Assistant</h2>
                                     <p className="text-gray-500 text-sm mt-1">
                                         {persona
-                                            ? `Personalised for ${persona} — ask about relevant schemes and services.`
-                                            : 'Search for schemes, ask about services, or speak your question.'}
+                                            ? `Personalised for ${persona}`
+                                            : 'Ask about schemes and services'}
                                     </p>
                                 </div>
                                 <div className="flex-1 grid grid-cols-1 lg:grid-cols-3 gap-6 overflow-hidden">
@@ -316,7 +316,7 @@ const Dashboard = () => {
                                             <VoiceInput onTranscriptionReceived={handleVoiceInput} />
                                             <div className="mt-8 w-full">
                                                 <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">
-                                                    {quickActions ? `${persona} Quick Actions` : 'Quick Questions'}
+                                                    {quickActions ? `Quick Actions` : 'Suggestions'}
                                                 </h4>
                                                 <motion.div
                                                     variants={containerVariants}

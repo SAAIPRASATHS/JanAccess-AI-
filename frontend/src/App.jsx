@@ -2,6 +2,7 @@ import React, { useState, createContext } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
+import './i18n'; // Initialize i18n
 
 // Low Bandwidth Context — toggles text-only mode app-wide
 export const LowBandwidthContext = createContext({

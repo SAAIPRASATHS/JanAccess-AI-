@@ -50,7 +50,7 @@
 .voice-wave span {
   width: 4px;
   height: 20px;
-  background: linear-gradient(to top, #0ea5e9, #22c55e);
+  background: linear-gradient(to top, #3b82f6, #60a5fa);
   border-radius: 4px;
   animation: wave 1s ease-in-out infinite;
 }
@@ -96,7 +96,7 @@
 
 /* Gradient text utility */
 .gradient-text {
-  background: linear-gradient(135deg, #0284c7, #22c55e);
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -104,13 +104,13 @@
 
 /* Root CSS variables */
 :root {
-  --primary-color: #0ea5e9;
-  --accent-color: #22c55e;
+  --primary-color: #3b82f6;
+  --accent-color: #60a5fa;
 }
 
 /* Smooth focus styles for accessibility */
 :focus-visible {
-  outline: 2px solid #0ea5e9;
+  outline: 2px solid #3b82f6;
   outline-offset: 2px;
   border-radius: 4px;
 }
