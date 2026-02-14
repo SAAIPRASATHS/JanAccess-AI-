@@ -31,8 +31,10 @@ app = FastAPI(
     redoc_url="/redoc",
 )
 
-# Mount Static Files for audio/document serving
-app.mount("/static", StaticFiles(directory="static"), name="static")
+# Mount Static Files for audio/document serving (only if directory exists)
+import os as _os
+if _os.path.exists("static"):
+    app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # CORS Configuration
 cors_origins = [
