@@ -1,21 +1,23 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { PersonaContext } from '../App';
 
 /* ─── Persona Card Data ───────────────────────────────────────── */
 const PERSONA_CARDS = [
-    { id: 'Farmer', emoji: '🌾', label: 'Farmer', desc: 'Agriculture, subsidies & market prices', gradient: 'from-green-500 to-emerald-600' },
-    { id: 'Student', emoji: '🎓', label: 'Student', desc: 'Scholarships, courses & education loans', gradient: 'from-blue-500 to-cyan-600' },
-    { id: 'Job Seeker', emoji: '💼', label: 'Job Seeker', desc: 'Govt jobs, resume help & placements', gradient: 'from-violet-500 to-purple-600' },
-    { id: 'Small Business Owner', emoji: '🏪', label: 'Small Business', desc: 'MUDRA, MSME & startup schemes', gradient: 'from-amber-500 to-orange-600' },
-    { id: 'Senior Citizen', emoji: '🧓', label: 'Senior Citizen', desc: 'Pensions, health cover & savings', gradient: 'from-rose-500 to-pink-600' },
-    { id: 'Differently Abled', emoji: '♿', label: 'Differently Abled', desc: 'UDID, assistive devices & reservations', gradient: 'from-teal-500 to-cyan-600' },
+    { id: 'Farmer', emoji: '🌾', gradient: 'from-green-500 to-emerald-600' },
+    { id: 'Student', emoji: '🎓', gradient: 'from-blue-500 to-cyan-600' },
+    { id: 'Job Seeker', emoji: '💼', gradient: 'from-violet-500 to-purple-600' },
+    { id: 'Small Business Owner', emoji: '🏪', gradient: 'from-amber-500 to-orange-600' },
+    { id: 'Senior Citizen', emoji: '🧓', gradient: 'from-rose-500 to-pink-600' },
+    { id: 'Differently Abled', emoji: '♿', gradient: 'from-teal-500 to-cyan-600' },
 ];
 
 const PersonaSelector = () => {
     const navigate = useNavigate();
     const { setPersona } = useContext(PersonaContext);
+    const { t } = useTranslation();
 
     const handleSelect = (personaId) => {
         setPersona(personaId);
@@ -54,13 +56,13 @@ const PersonaSelector = () => {
                     className="text-center mb-12"
                 >
                     <span className="inline-block px-4 py-1.5 mb-4 text-xs font-bold tracking-widest text-accent-600 uppercase bg-accent-50 rounded-full border border-accent-100">
-                        Smart Persona Mode
+                        {t('home.personaMode')}
                     </span>
                     <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">
-                        I am a <span className="gradient-text">…</span>
+                        {t('home.iAmA')} <span className="gradient-text">…</span>
                     </h2>
                     <p className="text-gray-500 max-w-lg mx-auto">
-                        Select your role for a personalised experience — tailored schemes, quick actions, and AI responses.
+                        {t('home.personaSelectorDesc')}
                     </p>
                 </motion.div>
 
@@ -89,8 +91,8 @@ const PersonaSelector = () => {
                                 {card.emoji}
                             </div>
 
-                            <h3 className="text-sm font-bold text-gray-800 mb-1 leading-tight">{card.label}</h3>
-                            <p className="text-[11px] text-gray-500 leading-snug">{card.desc}</p>
+                            <h3 className="text-sm font-bold text-gray-800 mb-1 leading-tight">{t(`persona.${card.id}.name`)}</h3>
+                            <p className="text-[11px] text-gray-500 leading-snug">{t(`persona.${card.id}.desc`)}</p>
                         </motion.button>
                     ))}
                 </motion.div>

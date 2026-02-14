@@ -1,7 +1,8 @@
 {
     "nav": {
         "home": "Home",
-        "dashboard": "Dashboard"
+        "dashboard": "Dashboard",
+        "openDashboard": "Open Dashboard"
     },
     "home": {
         "tagline": "Voice-First Intelligence",
@@ -18,9 +19,13 @@
         },
         "selectPersona": "Select Your Profile",
         "personaDescription": "Choose the profile that best matches you for personalized assistance",
+        "personaMode": "Smart Persona Mode",
+        "iAmA": "I am a",
+        "personaSelectorDesc": "Select your role for a personalised experience — tailored schemes, quick actions, and AI responses.",
         "features": {
-            "title": "Complete Civic Assistance",
-            "description": "Designed for accessibility, built for impact. Every feature works with voice, text, or both.",
+            "title": "Everything You Need",
+            "titleHighlight": "Simplified",
+            "description": "Built for accessibility. Works with voice, text, or both.",
             "assistant": {
                 "title": "Voice-First Assistant",
                 "description": "Speak in your language for instant answers"
@@ -39,12 +44,14 @@
             }
         },
         "cta": {
-            "title": "Ready to Access Your Benefits?",
-            "description": "No login required. Use voice or text.",
-            "button": "Try Assistant"
+            "title": "Ready to Get Started?",
+            "description": "No login required. Just speak or type your question.",
+            "button": "Start Using JanAccess AI"
         },
         "footer": {
             "tagline": "Built with love for underserved communities",
+            "builtWith": "Built with",
+            "forCommunities": "for communities",
             "copyright": "© 2026 JanAccess AI. Empowering communities through intelligence."
         }
     },
@@ -89,12 +96,30 @@
         }
     },
     "persona": {
-        "student": "Student",
-        "farmer": "Farmer",
-        "entrepreneur": "Entrepreneur",
-        "senior": "Senior Citizen",
-        "woman": "Women",
-        "general": "General"
+        "Farmer": {
+            "name": "Farmer",
+            "desc": "Agriculture, subsidies & market prices"
+        },
+        "Student": {
+            "name": "Student",
+            "desc": "Scholarships, courses & education loans"
+        },
+        "Job Seeker": {
+            "name": "Job Seeker",
+            "desc": "Govt jobs, resume help & placements"
+        },
+        "Small Business Owner": {
+            "name": "Small Business",
+            "desc": "MUDRA, MSME & startup schemes"
+        },
+        "Senior Citizen": {
+            "name": "Senior Citizen",
+            "desc": "Pensions, health cover & savings"
+        },
+        "Differently Abled": {
+            "name": "Differently Abled",
+            "desc": "UDID, assistive devices & reservations"
+        }
     },
     "common": {
         "loading": "Loading...",

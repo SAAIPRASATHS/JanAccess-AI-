@@ -53,7 +53,7 @@ const Home = () => {
                             onClick={() => navigate('/dashboard')}
                             className="btn-primary text-sm px-5 py-2.5"
                         >
-                            Open Dashboard
+                            {t('nav.openDashboard')}
                         </button>
                     </div>
                 </div>
@@ -157,10 +157,10 @@ const Home = () => {
                         className="text-center mb-16"
                     >
                         <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-                            Everything You Need, <span className="gradient-text">Simplified</span>
+                            {t('home.features.title')}, <span className="gradient-text">{t('home.features.titleHighlight')}</span>
                         </h2>
                         <p className="text-gray-500 max-w-xl mx-auto">
-                            Built for accessibility. Works with voice, text, or both.
+                            {t('home.features.description')}
                         </p>
                     </motion.div>
 
@@ -197,16 +197,16 @@ const Home = () => {
             <section className="py-20 bg-gradient-to-br from-primary-600 to-primary-800">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
-                        Ready to Get Started?
+                        {t('home.cta.title')}
                     </h2>
                     <p className="text-primary-100 text-lg mb-8 max-w-xl mx-auto">
-                        No login required. Just speak or type your question.
+                        {t('home.cta.description')}
                     </p>
                     <button
                         onClick={() => navigate('/dashboard')}
                         className="px-10 py-5 bg-white text-primary-600 rounded-2xl font-bold text-lg shadow-2xl hover:bg-gray-50 transition-all hover:-translate-y-1 active:scale-[0.98]"
                     >
-                        Start Using JanAccess AI
+                        {t('home.cta.button')}
                     </button>
                 </div>
             </section>
@@ -221,7 +221,7 @@ const Home = () => {
                         <span className="text-white font-bold text-lg">JanAccess AI</span>
                     </div>
                     <p className="text-gray-400 text-sm flex items-center justify-center gap-1">
-                        Built with <Heart className="w-4 h-4 text-red-400 fill-red-400" /> for communities
+                        {t('home.footer.builtWith')} <Heart className="w-4 h-4 text-red-400 fill-red-400" /> {t('home.footer.forCommunities')}
                     </p>
                     <p className="text-gray-500 text-xs mt-2">{t('home.footer.copyright')}</p>
                 </div>
