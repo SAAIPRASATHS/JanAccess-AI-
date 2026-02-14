@@ -9,10 +9,10 @@ from typing import Optional
 from fastapi import APIRouter, Depends, HTTPException, File, UploadFile, Query
 from sqlalchemy.orm import Session
 
-from backend.database import get_db
-from backend.models import Interaction, Scheme, SearchHistory
-from backend.services import ai_service, speech_service
-from backend.persona_config import PERSONA_OPTIONS
+from database import get_db
+from models import Interaction, Scheme, SearchHistory
+from services import ai_service, speech_service
+from persona_config import PERSONA_OPTIONS
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
@@ -176,7 +176,7 @@ async def voice_interaction(
     persona = _validate_persona(persona)
 
     # Save uploaded audio
-    upload_dir = "backend/static/uploads"
+    upload_dir = "static/uploads"
     os.makedirs(upload_dir, exist_ok=True)
     file_path = f"{upload_dir}/{uuid.uuid4()}.webm"
 
@@ -211,7 +211,7 @@ async def voice_interaction(
 @router.get("/persona-options")
 async def get_persona_options():
     """Return the list of available personas and their quick actions."""
-    from backend.persona_config import PERSONA_QUICK_ACTIONS
+    from persona_config import PERSONA_QUICK_ACTIONS
     return {
         "personas": PERSONA_OPTIONS,
         "quick_actions": PERSONA_QUICK_ACTIONS,

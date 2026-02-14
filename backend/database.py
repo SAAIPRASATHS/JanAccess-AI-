@@ -12,6 +12,10 @@ load_dotenv()
 # Database URL — defaults to SQLite for local dev
 SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./janaccess_ai.db")
 
+# Render provides postgres:// URLs but SQLAlchemy requires postgresql://
+if SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
+    SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL.replace("postgres://", "postgresql://", 1)
+
 # Create Database Engine
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL,

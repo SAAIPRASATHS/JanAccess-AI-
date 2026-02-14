@@ -2,8 +2,8 @@
 Seed script — Populates the database with sample government schemes.
 Run: python -m backend.seed
 """
-from backend.database import SessionLocal, engine
-from backend.models import Scheme, Base
+from database import SessionLocal, engine
+from models import Scheme, Base
 
 # Create tables
 Base.metadata.create_all(bind=engine)

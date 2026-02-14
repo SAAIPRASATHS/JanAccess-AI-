@@ -8,10 +8,10 @@ import logging
 from fastapi import APIRouter, File, UploadFile, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from backend.database import get_db
-from backend.models import DocumentAnalysis
-from backend.services import ai_service
-from backend.schemas import AnalysisResponse
+from database import get_db
+from models import DocumentAnalysis
+from services import ai_service
+from schemas import AnalysisResponse
 
 logger = logging.getLogger(__name__)
 router = APIRouter()

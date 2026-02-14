@@ -2,8 +2,8 @@
 Eligibility Engine — Rule-based logic for scheme matching.
 """
 from typing import List
-from backend.models import Scheme
-from backend.schemas import EligibilityCriteria
+from models import Scheme
+from schemas import EligibilityCriteria
 
 
 def get_eligible_schemes(profile: EligibilityCriteria, all_schemes: List[Scheme]) -> List[Scheme]:

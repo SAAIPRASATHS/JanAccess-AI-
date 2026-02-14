@@ -6,8 +6,8 @@ from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 
-from backend.database import get_db
-from backend.models import Interaction, SearchHistory, DocumentAnalysis, Scheme
+from database import get_db
+from models import Interaction, SearchHistory, DocumentAnalysis, Scheme
 
 logger = logging.getLogger(__name__)
 router = APIRouter()

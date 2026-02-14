@@ -12,16 +12,16 @@ load_dotenv()
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from backend.routers import assistant, eligibility, document, skills, analytics
-from backend.database import engine, Base
+from routers import assistant, eligibility, document, skills, analytics
+from database import engine, Base
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
 
 # Ensure static directories exist
-Path("backend/static/audio").mkdir(parents=True, exist_ok=True)
-Path("backend/static/uploads").mkdir(parents=True, exist_ok=True)
-Path("backend/static/documents").mkdir(parents=True, exist_ok=True)
+Path("static/audio").mkdir(parents=True, exist_ok=True)
+Path("static/uploads").mkdir(parents=True, exist_ok=True)
+Path("static/documents").mkdir(parents=True, exist_ok=True)
 
 app = FastAPI(
     title="JanAccess AI API",
@@ -32,7 +32,7 @@ app = FastAPI(
 )
 
 # Mount Static Files for audio/document serving
-app.mount("/static", StaticFiles(directory="backend/static"), name="static")
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # CORS Configuration
 cors_origins = [

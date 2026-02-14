@@ -5,10 +5,10 @@ import logging
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from backend.database import get_db
-from backend.models import Scheme
-from backend.schemas import EligibilityCriteria, EligibilityResponse
-from backend.services import eligibility_engine, ai_service
+from database import get_db
+from models import Scheme
+from schemas import EligibilityCriteria, EligibilityResponse
+from services import eligibility_engine, ai_service
 
 logger = logging.getLogger(__name__)
 router = APIRouter()

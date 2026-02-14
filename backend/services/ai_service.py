@@ -121,7 +121,7 @@ def _build_system_prompt(persona: str | None = None, language: str = "en") -> st
     
     # Add persona instruction
     if persona:
-        from backend.persona_config import PERSONA_SYSTEM_PROMPTS
+        from persona_config import PERSONA_SYSTEM_PROMPTS
         extra = PERSONA_SYSTEM_PROMPTS.get(persona, "")
         if extra:
             prompt += (

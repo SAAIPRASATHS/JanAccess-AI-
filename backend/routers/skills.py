@@ -4,8 +4,8 @@ Skills Router — AI-powered skill and job recommendations.
 import logging
 from fastapi import APIRouter, HTTPException
 
-from backend.schemas import SkillJobInput, SkillJobResponse, SkillJobRecommendation
-from backend.services import ai_service
+from schemas import SkillJobInput, SkillJobResponse, SkillJobRecommendation
+from services import ai_service
 
 logger = logging.getLogger(__name__)
 router = APIRouter()
