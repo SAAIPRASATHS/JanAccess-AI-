@@ -111,9 +111,10 @@ async def chat_interaction(
         if not relevant_schemes:
             relevant_schemes = _keyword_match_schemes(query, schemes)
 
-        # 3. Build context
+        # 3. Build context (include websites for AI to reference)
         context = "\n".join([
-            f"• {s.name} ({s.category}): {s.description}" for s in relevant_schemes
+            f"• {s.name} ({s.category}): {s.description}\n  Website: {s.website}" 
+            for s in relevant_schemes
         ]) if relevant_schemes else ""
 
         # 4. Generate AI response (persona-aware)

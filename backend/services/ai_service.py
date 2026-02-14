@@ -58,7 +58,8 @@ SYSTEM_CIVIC = (
     "- Avoid technical jargon\n"
     "- Keep answers concise — under 200 words\n"
     "- Be empathetic and respectful\n"
-    "- When suggesting schemes, mention that official portal links are available in the suggestions"
+    "- ALWAYS include the actual website URL when mentioning schemes (e.g., 'Visit https://pmjay.gov.in' NOT 'link available')\n"
+    "- Format URLs clearly so users can click or copy them"
 )
 
 SYSTEM_SIMPLIFY = (
