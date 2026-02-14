@@ -43,14 +43,17 @@ cors_origins = [
     "http://[::1]:5173",
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "http://[::1]:3000"
+    "http://[::1]:3000",
+    # Vercel deployments
+    "https://jan-access-ai-git-main-saalprasaths-projects.vercel.app",
+    "https://*.vercel.app",  # All Vercel preview deployments
 ]
 
 print(f"INFO: CORS Origins allowed: {cors_origins}")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=cors_origins,
+    allow_origins=["*"],  # Allow all origins for now (more permissive)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
