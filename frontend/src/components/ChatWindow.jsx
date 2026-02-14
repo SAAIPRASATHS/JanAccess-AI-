@@ -30,6 +30,29 @@ const ChatWindow = ({ messages, onSendMessage, isLoading, isLowBandwidth }) => {
         }
     };
 
+    // Convert URLs in text to clickable links
+    const renderTextWithLinks = (text) => {
+        const urlRegex = /(https?:\/\/[^\s]+)/g;
+        const parts = text.split(urlRegex);
+
+        return parts.map((part, index) => {
+            if (part.match(urlRegex)) {
+                return (
+                    <a
+                        key={index}
+                        href={part}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary-600 hover:text-primary-700 underline font-semibold break-all"
+                    >
+                        {part}
+                    </a>
+                );
+            }
+            return part;
+        });
+    };
+
     return (
         <div className="flex flex-col h-full glass-card overflow-hidden">
             {/* Messages Area */}
@@ -74,7 +97,7 @@ const ChatWindow = ({ messages, onSendMessage, isLoading, isLowBandwidth }) => {
                                     ? 'bg-primary-600 text-white rounded-tr-sm shadow-md'
                                     : 'bg-white border border-gray-200 text-gray-800 rounded-tl-sm shadow-sm'
                                     }`}>
-                                    <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.text}</p>
+                                    <p className="text-sm leading-relaxed whitespace-pre-wrap">{renderTextWithLinks(msg.text)}</p>
 
                                     {msg.audioUrl && !isLowBandwidth && (
                                         <button
