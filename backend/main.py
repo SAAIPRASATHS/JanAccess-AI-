@@ -72,3 +72,14 @@ def read_root():
         "version": "1.0.0",
         "docs": "/docs"
     }
+
+
+@app.get("/seed-database", tags=["Admin"])
+def seed_database():
+    """Seed the database with sample government schemes."""
+    try:
+        from seed import seed_data
+        seed_data()
+        return {"status": "success", "message": "Database seeded with 36 government schemes!"}
+    except Exception as e:
+        return {"status": "error", "message": f"Failed to seed database: {str(e)}"}
